@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}Classroom air{% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=KoHo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'classes/vendor/aos/aos.css' %} ">
+  <link href="../../static/classes/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/classes/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../static/classes/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../static/classes/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../static/classes/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="../../static/classes/css/base.css? 'U' now" />
+  <link rel="stylesheet" href="{% static 'classes/css/base.css' %}" />
+  {% block stylesheet %} {% endblock %}
+
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <h1 class="text-light"><a href="{% url 'classes:home' %}">Classroom Air</a></h1>
+        <!-- <img src="assets/img/sphere.jpg" alt="" class="img-fluid rounded-circle"> -->
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 30 30"
+          style=" fill:#0090f0;">
+          <path
+            d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 10 26 L 10 4 L 6 4 z M 12 4 L 12 26 L 24 26 C 25.105 26 26 25.105 26 24 L 26 8 C 26 6.895 25.105 6 24 6 L 18 6 C 18 4.895 17.105 4 16 4 L 12 4 z M 7 6 C 7.552 6 8 6.448 8 7 C 8 7.552 7.552 8 7 8 C 6.448 8 6 7.552 6 7 C 6 6.448 6.448 6 7 6 z M 15 9 L 18 9 C 18.553 9 19 9.448 19 10 C 19 10.552 18.553 11 18 11 L 15 11 C 14.447 11 14 10.552 14 10 C 14 9.448 14.447 9 15 9 z M 7 10 C 7.552 10 8 10.448 8 11 C 8 11.552 7.552 12 7 12 C 6.448 12 6 11.552 6 11 C 6 10.448 6.448 10 7 10 z M 17 13 L 20 13 C 20.553 13 21 13.448 21 14 C 21 14.552 20.553 15 20 15 L 17 15 C 16.447 15 16 14.552 16 14 C 16 13.448 16.447 13 17 13 z M 7 14 C 7.552 14 8 14.448 8 15 C 8 15.552 7.552 16 7 16 C 6.448 16 6 15.552 6 15 C 6 14.448 6.448 14 7 14 z M 20 17 L 23 17 C 23.553 17 24 17.448 24 18 C 24 18.552 23.553 19 23 19 L 20 19 C 19.447 19 19 18.552 19 18 C 19 17.448 19.447 17 20 17 z M 15 21 L 18 21 C 18.553 21 19 21.448 19 22 C 19 22.552 18.553 23 18 23 L 15 23 C 14.447 23 14 22.552 14 22 C 14 21.448 14.447 21 15 21 z">
+          </path>
+        </svg>
+
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
+            </li>
+            {% if queryset.class_list %}
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-file"></i> <span>All Classes</span></a>
+            </li>
+            {% endif %}
+
+            <li><a href="#about" class="addbtn"><img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAABcElEQVRoge2XP0oDQRTGvzcbUwQPoPYLdpo/l/AgErGwsfEo5gp6ALHwAIGEkFJsJSGFGFfZYHYzY7GkCGYmQd7sEHm/9oP95sfO7L4BBEEQQkI+HtrsjGrArEGGDgBA6WxCuRp2r+KEu4tdoNkZ1Uh/nYFQXQkU5sbsP/TbRylnn+J8WMGs8WvxAKBRJZ3WudvYBZbbxhIecvd5eAP5nj0zjuxveBAoFxEIjQiERgRCIwKhcQ5zq1Ol6w/rg0q2zRRrFbBOlWWzYYp1bCHLVFk2G6ZYq4BzqiwbxxS784fYKqB0NilzIU4MjW2RfQvlagiFuZ8VbQ8h+jZqOrDnDoovUVov9iD/ZcQNZTA0Nmo66Ldb1ns0+6W+dftiXHnvImbt/L+HeFcQgdCIQGhEIDQisIZPR/bBXeZD4MkWGOCRu4xfQC9uCHhfk7xVIlxz17EL9C6Pn7GgEwLuASQAEgPcRRFOu+fxK3efIAhCWH4AqYZr4U20D2QAAAAASUVORK5CYII="></a>
+            </li>
+
+          </ul>
+        </nav><!-- .nav-menu -->
+      </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <section class="inner-page">
+      <div class="container">
+        <!-- <div class="card" id="card 1">
+          <p>
+            Your classes would appear here
+          </p>
+         </div> -->
+        {% block content %}
+        {% endblock %}
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Classroom Air</span></strong>
+      </div>
+      <div class="credits">
+
+        Designed by <a href="">Craftsman</a>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../../static/classes/vendor/aos/aos.js"></script>
+  <script src="../../static/classes/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/classes/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../static/classes/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../static/classes/vendor/php-email-form/validate.js"></script>
+  <script src="../../static/classes/vendor/purecounter/purecounter.js"></script>
+  <script src="../../static/classes/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/classes/vendor/typed.js/typed.min.js"></script>
+  <script src="../../static/classes/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../static/classes/js/main.js"></script>
+
+</body>
+
+</html>

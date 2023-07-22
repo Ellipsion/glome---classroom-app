@@ -1,0 +1,34 @@
+{% extends 'registration/login.html' %}
+<!-- --  -->
+{% block title %}Glome{% endblock %}
+<!-- --  -->
+{% block login_signup %}index{% endblock %}
+<!-- --  -->
+{% block branding %}
+<div class="app-branding">
+    <a class="app-logo" href="{% url 'index' %}">
+        <span class="logo-text">
+            
+            G<span>l</span>ome
+        </span>
+        <div class="app-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 172 172" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2069f6"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="6" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="18" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="12" cy="6" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="12" cy="18" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="1" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle><circle cx="23" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle></g><path d="" fill="none"></path></g></g>
+            </svg>
+        </div>
+    </a>
+
+</div>
+<!-- --  -->
+{% endblock %}
+<!-- --  -->
+{% block heading %} Cloud Classroom {% endblock %}
+<!-- --  -->
+{% block form %}
+<div class="text-center pt-5">
+    <a href="{% url 'login' %}" class="btn mt-5 app-btn-primary  w-100 theme-btn mx-auto">Log In</a>
+</div>
+<div class="text-center pt-5">
+    <a href="{% url 'users:register' %}" class="mx-auto">Sign In</a>
+</div>
+{% endblock %}
+<!-- --  -->

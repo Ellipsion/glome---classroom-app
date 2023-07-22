@@ -1,0 +1,51 @@
+<a href="{% url 'classes:home' %}">Home </a>
+<br> <a href="{% url 'classes:all' %}"> All classes</a>
+<h2>{{classes}}</h2>
+<table>
+    <tbody>
+        <tr>
+            <th>Class name</th>
+            <td>{{classes}}</td>
+        </tr>
+        <tr>
+            <th>faculty</th>
+            <td>{{classes.class_faculty}}</td>
+        </tr>
+        <tr>
+            <th>Class url</th>
+            <td>{{classes.class_url}}</td>
+        </tr>
+        <tr>
+            <th>Class time</th>
+            <td>{{classes.class_time}}</td>
+        </tr>
+        <tr>
+            <th>Date Published</th>
+            <td>{{classes.class_pub_date}}</td>
+        </tr>
+        <tr>
+            <th>Days</th>
+
+
+            {% if classes.Monday %}
+            <td>monday</td>
+            {% endif %} {% if classes.Tuesday %}
+            <td>tuesday</td>
+            {% endif %} {% if classes.Wednesday %}
+            <td>wednesday</td>
+            {% endif %} {% if classes.Thursday %}
+            <td>Thursday</td>
+            {% endif %} {% if classes.Friday %}
+            <td>Friday</td>
+            {% endif %} {% if classes.Saturday %}
+            <td>Saturday</td>
+            {% endif %} {% if classes.Sunday %}
+            <td>Sunday</td>
+            {% endif %}
+        </tr>
+    </tbody>
+</table>
+<br>
+<a href="{% url 'classes:update' classes.id %}">Update</a>
+<br>
+<a href="{% url 'classes:delete' classes.id %}">delete</a>

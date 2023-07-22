@@ -1,0 +1,99 @@
+{% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Signup | Glome </title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Glome - Cloud Classroom">
+    <meta name="author" content="Ashish Kumawat at The_Craftsman">
+    <link rel="shortcut icon" href="{% static 'classes/images/favicon.ico' %}">
+
+    <!-- FontAwesome JS-->
+    <script defer src="{% static 'classes/plugins/fontawesome/js/all.min.js' %}"></script>
+
+    <!-- App CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'classes/css/portal.css' %}">
+
+</head>
+
+
+<body class="app app-signup p-0">
+    <div class="row g-0 app-auth-wrapper">
+        <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-4">
+            <div class="d-flex flex-column align-content-end">
+                <div class="app-auth-body mx-auto">
+
+                    <h2 class="auth-heading  mb-3">Sign up to Glome <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="72" height="72" viewBox="0 0 172 172" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2069f6"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="6" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="18" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="12" cy="6" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="12" cy="18" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="1" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle><circle cx="23" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle></g><path d="" fill="none"></path></g></g>
+                    </svg></h2>
+                    <div class="auth-form-container text-start">
+                        <form class="auth-form login-form" method="POST">
+                            {% csrf_token %}
+                            <small>
+                           
+                                {{form|crispy}}
+                          
+                            
+                                <div class="text-center pt-3">
+                                    <button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign Up</button>
+                                </div>
+                            </small>
+                        </form>
+
+                        <div class="auth-option text-center pt-4">Already have an account? <a class="text-link" href="/login">Log in</a></div>
+
+                    </div>
+
+
+                </div>
+                <!-- ----------------------------------------// form body ----------------------------------------  -->
+
+
+                <!--//app-auth-footer-->
+            </div>
+            <!--//flex-column-->
+        </div>
+        <!--//auth-main-col-->
+        <div class="col-12 col-md-5 col-lg-6  auth-background-col">
+            <div class="auth-background-holder">
+            </div>
+            <div class="auth-background-mask"></div>
+            <div class="auth-background-overlay p-3 p-lg-5">
+                <div class="app-auth-branding ">
+
+                    <span class="logo-text">
+                            
+                            G<span>l</span>ome
+                    </span>
+                    <div class="app-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 172 172" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2069f6"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="6" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="18" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="12" cy="6" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="12" cy="18" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="1" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle><circle cx="23" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle></g><path d="" fill="none"></path></g></g>
+                            </svg>
+                    </div>
+
+
+                </div>
+
+                <footer class="app-auth-footer">
+                    <div class="container text-center py-3">
+                        <small class="copyright">Design and Developed <i class="fas fa-code" style="color: #2069f6;"></i> by <a class="app-link" href="https://www.starrernet.wixsite.com/craftsman" target="_blank">The_Craftsman</a></small>
+
+                    </div>
+                </footer>
+            </div>
+            <!--//auth-background-overlay-->
+        </div>
+        <!--//auth-background-col-->
+
+    </div>
+    <!--//row-->
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,117 @@
+#title-card, #main-card {
+    /* background-color: rgb(27, 145, 255); */
+    background-color: white;
+    width: 65%;
+    margin-top: 15px;
+    font-size: 30px;
+    height: 60px;
+    text-align: justify;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+
+}
+#title-card p{
+    margin-left: 20px;
+    margin-top: -5px;
+    color: rgb(110, 103, 103);
+}
+
+
+#main-card {
+    margin-top: 50px;
+    height: 450px;
+
+}
+#container {
+    padding: 30px;
+}
+
+#side-card {
+    width: 30%;
+    position: relative;
+    margin-top: -570px;
+    margin-left: 760px;
+    height: 560px;
+}
+
+.getstarted {
+    padding: 10px;
+    margin-top: 100px;
+    text-align: center;
+    
+}
+.getstarted .title {
+    font-family: 'Ubuntu', sans-serif;
+       font-size: 100px;
+       font-weight: 600;
+       color: #444649;
+}
+.getstarted p {
+    font-family: 'KoHo', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #999fa3;
+}
+
+.getstartedbtn {
+
+
+    padding: 0;
+    /* height:100%; */
+    position: relative;
+    margin-top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.gbtn {
+      
+      position: relative;
+      display: inline-block;
+      width: 277px;
+      height: 50px;
+      font-size: 1em;
+      
+      line-height: 60px;
+      text-align: center;
+      text-transform: uppercase;
+      background-color: transparent;
+      cursor: pointer;
+      text-decoration:none;
+      font-family: 'Roboto', sans-serif;
+      font-weight:600;
+      font-size:17px;
+      letter-spacing: 0.045em;
+  }
+  
+  .gbtn svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  
+  .gbtn svg rect {
+      stroke: #91c9ee;
+      stroke-width: 4;
+      stroke-dasharray: 353, 0;
+      stroke-dashoffset: 0;
+      -webkit-transition: all 600ms ease;
+      transition: all 300ms ease;
+  }
+  
+  .gbtn span{
+    background: rgb(130, 159, 255);
+    background: -moz-linear-gradient(left,  rgb(130, 199, 255) 0%, rgb(237, 120, 120) 100%);
+    background: -webkit-linear-gradient(left,  rgba(255,130,130,1) 0%,rgb(237, 120, 120) 100%);
+    background: linear-gradient(to right,  rgb(75, 168, 255) 0%,rgb(81, 74, 182) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', endColorstr='#e178ed',GradientType=1 );
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .gbtn:hover svg rect {
+      stroke-width: 4;
+      stroke-dasharray: 196, 543;
+      stroke-dashoffset: 437;
+  }

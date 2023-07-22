@@ -1,0 +1,31 @@
+<a href="{% url 'classes:home' %}">Home</a>
+<h2> All Classes </h2>
+<table>
+    <thead>
+        <th>Name</th>
+        <th></th>
+        <th>faculty</th>
+        <th></th>
+        <th>url</th>
+
+    </thead>
+    <tbody>
+        {% for class in all_classes %}
+        <tr>
+            <td><a href="{% url 'classes:detail' class.id %}"> {{ class.class_name }}</a></td>
+            <td></td>
+            <td>{{ class.class_faculty }}</td>
+            <td></td>
+            <td>{{ class.class_url }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="{% url 'classes:update' class.id %}">update</a></td>
+            <td></td>
+            <td><a href="{% url 'classes:delete' class.id %}">delete</a></td>
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

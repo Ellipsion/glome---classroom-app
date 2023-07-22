@@ -1,0 +1,49 @@
+{% if user.is_authenticated %}
+<p>{{ user.username }}</p>
+{% if active_class_list %}
+<h2>Active Classes</h2>
+{% for class in active_class_list %}
+<ul>
+    <li><a href="{% url 'classes:detail' class.id %}"> {{ class.class_name }}</a></li>
+    <li>{{ class.class_faculty }}</li>
+    {% if class.is_active %}
+    <li><a href="{{ class.class_url }}">{{ class.class_url }}</a></li>
+    {% else %}
+    <li>{{ class.class_url }}</li>
+    {% endif %}
+    <li>{{ class.class_time }}</li>
+</ul>
+{% endfor %} {% else %}
+<p>no active classes.</p>
+{% endif %}
+<h2> Recent Classes </h2>
+{% if recent_classes %}
+<table>
+    <thead>
+        <th>Name</th>
+        <th></th>
+        <th>faculty</th>
+        <th></th>
+        <th>url</th>
+
+    </thead>
+    <tbody>
+        {% for class in recent_classes %}
+        <tr>
+            <td>{{ class.class_name }}</td>
+            <td></td>
+            <td>{{ class.class_faculty }}</td>
+            <td></td>
+            <td>{{ class.class_url }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'classes:all' %}">All classes</a> {% else %}
+<p>you don't have any classes yet</p>
+{% endif %}
+<a href="{% url 'classes:create' %}">create new </a>
+<br>
+<a href="{% url 'logout' %}">logout</a> {% else %}
+<a href="{% url 'login' %}">Login</a> {% endif %}

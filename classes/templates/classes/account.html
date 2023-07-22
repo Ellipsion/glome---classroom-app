@@ -1,0 +1,190 @@
+{% extends 'classes/base.html' %}
+<!-- --  -->
+{% block title %}My Account | Glome{% endblock %}
+<!-- --  -->
+{% block main %}
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+
+        <h1 class="app-page-title">My Account</h1>
+        <div class="row gy-4">
+            <div class="col-12 col-lg-6">
+                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+                    <div class="app-card-header p-3 border-bottom-0">
+                        <div class="row align-items-center gx-3">
+                            <div class="col-auto">
+                                <div class="app-icon-holder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                        viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                            stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                            stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                            font-weight="none" font-size="none" text-anchor="none"
+                                            style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g fill="#2069f6">
+                                                <circle cx="12" cy="7" transform="scale(7.16667,7.16667)" r="5"
+                                                    opacity="0.35"></circle>
+                                                <path
+                                                    d="M100.33333,136.16667c0,5.08833 1.075,9.96167 2.93833,14.33333h-60.27167c-11.89667,0 -21.5,-9.60333 -21.5,-21.5c0,-11.89667 9.60333,-21.5 21.5,-21.5h71.66667c-8.67167,6.52167 -14.33333,16.985 -14.33333,28.66667z">
+                                                </path>
+                                                <path
+                                                    d="M136.16667,100.33333c-8.0625,0 -15.50867,2.666 -21.5,7.16667c-14.33333,0 -28.66667,28.66667 -28.66667,28.66667c0,0 7.16667,7.16667 17.14983,13.94633c5.4395,12.857 18.18183,21.887 33.01683,21.887c19.78,0 35.83333,-16.05333 35.83333,-35.83333c0,-19.78 -16.05333,-35.83333 -35.83333,-35.83333z"
+                                                    opacity="0.35"></path>
+                                                <path
+                                                    d="M154.94333,133.44333l-17.91667,17.91667c-1.21833,1.14667 -2.795,1.86333 -4.44333,1.86333c-1.64833,0 -3.225,-0.71667 -4.44333,-1.86333l-10.75,-10.75c-2.43667,-2.43667 -2.43667,-6.45 0,-8.88667c2.43667,-2.43667 6.45,-2.43667 8.88667,0l6.30667,6.30667l13.47333,-13.47333c2.43667,-2.43667 6.45,-2.43667 8.88667,0c2.43667,2.43667 2.43667,6.45 0,8.88667z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <!--//icon-holder-->
+
+                            </div>
+                            <!--//col-->
+                            <div class="col-auto">
+                                <h4 class="app-card-title">Profile</h4>
+                            </div>
+                            <!--//col-->
+                        </div>
+                        <!--//row-->
+                    </div>
+                    <!--//app-card-header-->
+
+                    <div class="app-card-body px-4 w-100">
+
+                        <!--//item-->
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <div class="item-label"><strong>Username</strong></div>
+                                    <div class="item-data">{{user.username}}</div>
+                                </div>
+                                <!--//col-->
+
+                                <!--//col-->
+                            </div>
+                            <!--//row-->
+                        </div>
+                        <!--//item-->
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <div class="item-label"><strong>Name</strong></div>
+                                    {% if user.first_name %}
+                                    <div class="item-data">{{user.first_name}} &nbsp;{{user.last_name}}</div>
+
+                                    {% else %}
+                                    <div class="item-data">Update Name</div>
+                                    {% endif %}
+                                </div>
+                                <!--//col-->
+                                <div class="col text-end">
+                                    <a class="btn-sm mx-5 app-btn-secondary" href="#">Update</a>
+                                </div>
+                                <!--//col-->
+                            </div>
+                            <!--//row-->
+                        </div>
+                        <!--//item-->
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <div class="item-label"><strong>Email</strong></div>
+                                    <div class="item-data">
+                                        {{user.email}}
+                                    </div>
+                                </div>
+                                <!--//col-->
+                                <div class="col text-end">
+                                </div>
+                                <!--//col-->
+                            </div>
+                            <!--//row-->
+                        </div>
+                        <!--//item-->
+
+                        <!--//item-->
+                    </div>
+                    <!--//app-card-body-->
+                    <div class="app-card-footer p-4 mt-auto">
+                        <a class="btn app-btn-primary" href="{% url 'logout' %}">Logout</a>
+
+
+                    </div>
+                    <!--//app-card-footer-->
+
+                </div>
+                <!--//app-card-->
+            </div>
+            <!--//col-->
+            <div class="col-12 col-lg-6">
+                <div class="app-card png-bg-z app-card-account shadow-sm d-flex flex-column align-items-start">
+                    <div class="app-card-header p-2 border-bottom-0">
+                        <div class="row align-items-center gx-3">
+                            <div class="col-auto">
+                                <div class="app-icon-holder mx-1 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+                                        viewBox="0 0 172 172" style=" fill:#000000;">
+                                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                            stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                            stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                            font-weight="none" font-size="none" text-anchor="none"
+                                            style="mix-blend-mode: normal">
+                                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                                            <g fill="#e74c3c">
+                                                <path
+                                                    d="M143.33333,78.83333c-1.333,0 -113.33367,0 -114.66667,0c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c1.333,0 113.33367,0 114.66667,0c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667z"
+                                                    opacity="0.35"></path>
+                                                <circle cx="15" cy="12" transform="scale(7.16667,7.16667)" r="3">
+                                                </circle>
+                                                <path
+                                                    d="M143.33333,28.66667c-1.333,0 -113.33367,0 -114.66667,0c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c1.333,0 113.33367,0 114.66667,0c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667z"
+                                                    opacity="0.35"></path>
+                                                <circle cx="9" cy="5" transform="scale(7.16667,7.16667)" r="3"></circle>
+                                                <path
+                                                    d="M143.33333,129c-1.333,0 -113.33367,0 -114.66667,0c-3.956,0 -7.16667,3.21067 -7.16667,7.16667c0,3.956 3.21067,7.16667 7.16667,7.16667c1.333,0 113.33367,0 114.66667,0c3.956,0 7.16667,-3.21067 7.16667,-7.16667c0,-3.956 -3.21067,-7.16667 -7.16667,-7.16667z"
+                                                    opacity="0.35"></path>
+                                                <circle cx="10" cy="19" transform="scale(7.16667,7.16667)" r="3">
+                                                </circle>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <!--//icon-holder-->
+
+                            </div>
+                            <!--//col-->
+                            <div class="col-auto">
+                                <h4 class="app-card-title  mt-1">Customize</h4>
+                            </div>
+                            <!--//col-->
+                        </div>
+                        <!--//row-->
+                    </div>
+                    <!--//app-card-header-->
+                    <div class="app-card-body png-bg-cz  h-100 w-100">
+
+                        <h2 class="mt-4 p-5 mx-5 text-center">Coming Soon!</h2>
+                    </div>
+                    <!--//app-card-body-->
+                    <div class="app-card-footer p-4 mt-auto">
+                    </div>
+                    <!--//app-card-footer-->
+
+                </div>
+                <!--//app-card-->
+            </div>
+            <!--//col-->
+
+            <!--//app-card-header-->
+
+
+        </div>
+        <!--//row-->
+
+    </div>
+    <!--//container-fluid-->
+</div>
+<!--//app-content-->
+{% endblock %}

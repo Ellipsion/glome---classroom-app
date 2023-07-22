@@ -1,0 +1,85 @@
+{% extends 'classes/base.html' %} {% load crispy_forms_tags %}
+<!-- ----------------------------------- sidebar ----------------------------------------  -->
+{% if 'create' in request.path %}
+<!-- --  -->
+{% block create_active %}active{% endblock %}
+<!-- --  -->
+
+{% endif %}
+
+<!-- ----------------------------------- // sidebar ----------------------------------------  -->
+{% block main %}
+
+<div class=" app-content pt-3 p-md-3 p-lg-4 ">
+    <div class="container-xl  ">
+        {% if 'update' in request.path %}
+        <h1 class="app-page-title ">Update Class '{{main_form.class_name.value}}'</h1>
+        {% else %}
+        <h1 class="app-page-title ">Create Class</h1>
+        {% endif %}
+
+        <hr class="mb-4 ">
+        <form action="" method="POST">
+
+            <div class="row g-4 settings-section  ">
+                <div class="col-12 col-md-5  ">
+                    <div class="app-card border-left-decoration app-card-settings shadow-sm p-4">
+
+                        <div class="app-card-body">
+                            {% csrf_token %}
+                            <!-- --  -->
+                            {% for field in form_fields|slice:":4" %}
+                            <!-- --  -->
+                            {{field| as_crispy_field}}
+                            <!-- --  -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5  ">
+
+
+                    <div class="app-card  app-card-settings shadow-sm p-4">
+
+                        <div class="app-card-body days-i">
+                            <p class="p-0 mb-1">Days Active</p>
+                            <hr class="mb-3 mt-1">
+                            <div class="mb-2">
+
+                                {% for field in form_fields|slice:"11:12" %}
+                                <!-- --  -->
+                                {{field| as_crispy_field}}
+                                <!-- --  -->
+                                {% endfor %}
+                            </div>
+                            {% for field in form_fields|slice:"4:11" %}
+                            <!-- --  -->
+                            {{field| as_crispy_field}}
+                            <!-- --  -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 ">
+
+                    {% if 'update' in request.path %}
+                    <input type="submit" value="save changes" class="btn app-btn-primary" style="width: 10em;">
+                    <!-- --  -->
+                    {% else %}
+                    <input type="submit" value="create" class="btn app-btn-primary" style="width: 10em;">
+                    <!-- --  -->
+                    {% endif %}
+                    <a style="margin-left: 4em;" href="{{ previous_url }}">cancel</a>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

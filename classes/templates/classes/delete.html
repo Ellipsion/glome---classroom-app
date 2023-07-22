@@ -1,0 +1,28 @@
+{% extends 'classes/base.html' %}
+<!-- --  -->
+{% block main %}
+<div class=" app-content pt-3 p-md-3 p-lg-4 ">
+    <div class="container-xl  ">
+        <h1 class="app-page-title ">Confirm Delete</h1>
+        <hr class="mb-4 ">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="row g-4 settings-section  ">
+                <div class="col-12 col-md-8  ">
+                    <div class="app-card border-left-decoration app-card-settings shadow-sm p-4">
+
+                        <div class="app-card-body">
+                            <p>Are you sure to delete '{{class}}'</p>
+
+                            <input type="submit" value="delete" class="btn app-btn-primary" style="width: 10em;">
+                            <a style="margin-left: 4em;margin-right: 4em;" href="{{ previous_url }}">cancel</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "classes/base.html" %} {% load static %} {% block stylesheet %}
+<link rel="stylesheet" href="{% static 'classes/css/index.css' %}" /> {% endblock %} {% block content %} {% if queryset.class_list %}
+<div class="card" id="title-card">
+    <p>Your Classes</p>
+</div>
+<div class="card" id="main-card">
+    <div id="container">
+        <div class="">
+
+        </div>
+    </div>
+</div>
+<div class="card" id="side-card">
+
+</div>
+
+{% else %}
+<div class="getstarted">
+    <span class="title">Classroom Air</span>
+    <p>You will see your active classes here, once you get started.</p>
+    <p>{{ queryset.class_list }}</p>
+    <div class="getstartedbtn">
+        <a href="http://marcel-pirnay.be/" class="gbtn">
+            <svg width="277" height="62">
+              <defs>
+                  <linearGradient id="grad1">
+                      <stop offset="0%" stop-color= "#259de2" />
+                       
+                      <stop offset="100%" stop-color="#259de2" />
+                  </linearGradient>
+              </defs>
+               <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+            </svg>
+            <span>Get started</span>
+        </a>
+    </div>
+</div>
+</div>
+{% endif %} {% endblock %}

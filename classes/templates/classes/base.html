@@ -1,0 +1,304 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}Home | Glome{% endblock %}</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Glome - Cloud Classroom">
+    <meta name="author" content="Ashish Kumawat at The_Craftsman">
+    <link rel="shortcut icon" href="{% static 'classes/images/favicon.ico' %}">
+
+    <!-- FontAwesome JS-->
+    <script defer src="{% static 'classes/plugins/fontawesome/js/all.min.js' %}"></script>
+
+    <!-- App CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'classes/css/portal.css' %}">
+
+</head>
+
+<body class="app">
+    <div class="background">
+
+        <!-- ----------------------------------------- header ------------------------------------  -->
+
+        <header class="app-header fixed-top">
+            <div class="app-header-inner">
+                <div class="container-fluid py-2">
+                    <div class="app-header-content">
+                        <div class="row justify-content-between align-items-center">
+
+                            <div class="col-auto">
+                                <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#3498db"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="19" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="5" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="12" cy="5" transform="scale(7.16667,7.16667)" r="2"></circle><circle cx="19" cy="5" transform="scale(7.16667,7.16667)" r="2"></circle><circle cx="5" cy="5" transform="scale(7.16667,7.16667)" r="2"></circle><circle cx="12" cy="19" transform="scale(7.16667,7.16667)" r="2"></circle><circle cx="19" cy="19" transform="scale(7.16667,7.16667)" r="2"></circle><circle cx="5" cy="19" transform="scale(7.16667,7.16667)" r="2"></circle></g></g>
+                                    </svg>
+
+                                </a>
+
+                            </div>
+
+                            <div class="search-mobile-trigger d-sm-none col">
+                                <i class="search-mobile-trigger-icon fas fa-search"></i>
+
+                            </div>
+
+                            <div class="app-search-box col">
+                                <form class="app-search-form">
+                                    <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+                                    <button type="submit" class="btn search-btn btn-primary" value="Search"><i class="fas fa-search"></i></button>
+                                </form>
+                            </div>
+                            <!--//app-search-box-->
+
+                            <div class="app-utilities col-auto">
+                                <div class="app-utility-item app-notifications-dropdown dropdown">
+                                    <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifications">
+                                        <img class="notifications-icon" />
+                                        <!-- <span class="icon-badge"></span> -->
+                                    </a>
+                                    <!--//dropdown-toggle-->
+
+                                    <div class="dropdown-menu p-0" aria-labelledby="notifications-dropdown-toggle">
+                                        <div class="dropdown-menu-header p-3">
+                                            <h5 class="dropdown-menu-title mb-0">Notifications</h5>
+                                        </div>
+                                        <!--//dropdown-menu-title-->
+                                        <div class="dropdown-menu-content">
+                                            <div class="item p-3">
+                                                <div class="row gx-2 justify-content-between align-items-center">
+                                                    <div class="col-auto">
+                                                        <img class="profile-image" src="{% static 'classes/images/clip-online-consultation.png' %}" alt="">
+                                                    </div>
+                                                    <!--//col-->
+                                                    <div class="col">
+                                                        <div class="info">
+                                                            <div class="desc">Welcome to Glome Classroom! </div>
+                                                            <div class="meta"> </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--//col-->
+                                                </div>
+                                                <!--//row-->
+                                                <a class="link-mask" href="#"></a>
+                                            </div>
+                                            <!--//item-->
+
+                                        </div>
+                                        <!--//dropdown-menu-content-->
+
+                                        <!-- <div class="dropdown-menu-footer p-2 text-center">
+                                            <a href="">View all</a>
+                                        </div> -->
+
+                                    </div>
+                                    <!--//dropdown-menu-->
+                                </div>
+                                <!--//app-utility-item-->
+                                <!-- ------------------------------------ setting ------------------------------------  -->
+                                <!-- <div class="app-utility-item">
+                                    <a href="#" title="Settings">
+
+                                        <img class="settings-icon-header" src="https://img.icons8.com/plumpy/24/000000/settings--v1.png" />
+                                    </a>
+                                </div> -->
+                                <!--//app-utility-item-->
+                                <!-- ------------------------------------// setting ------------------------------------  -->
+
+                                <div class="app-utility-item app-user-dropdown dropdown">
+                                    <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                        <img class="user-icon-header" alt="user profile"></a>
+                                    <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
+                                        <li><a class="dropdown-item" style="color:darkgray" href="{% url 'classes:account' %}">{{user.username}}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'classes:account' %}">Account</a></li>
+                                        <!-- <li><a class="dropdown-item" href="settings.html">Settings</a></li> -->
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                                    </ul>
+                                </div>
+                                <!--//app-user-dropdown-->
+                            </div>
+                            <!--//app-utilities-->
+                        </div>
+                        <!--//row-->
+                    </div>
+                    <!--//app-header-content-->
+                </div>
+                <!--//container-fluid-->
+            </div>
+            <!--//app-header-inner-->
+
+            <!-- ----------------------------------------- sidebar -----------------------------------------  -->
+
+            <div id="app-sidepanel" class="app-sidepanel">
+                <div id="sidepanel-drop" class="sidepanel-drop"></div>
+                <div class="sidepanel-inner d-flex flex-column">
+                    <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+                    <!-- ----------------------------------------- branding -----------------------------------------  -->
+                    <div class="app-branding">
+                        <a class="app-logo" href="{% url 'classes:home' %}">
+                            <span class="logo-text">
+                                
+                                G<span>l</span>ome
+                            </span>
+                            <div class="app-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 172 172" style=" fill:#000000;"><g transform=""><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2069f6"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="2" opacity="0.35"></circle><circle cx="6" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="18" cy="12" transform="scale(7.16667,7.16667)" r="1.5"></circle><circle cx="12" cy="6" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="12" cy="18" transform="scale(7.16667,7.16667)" r="1.5" opacity="0.35"></circle><circle cx="1" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle><circle cx="23" cy="12" transform="scale(7.16667,7.16667)" r="1"></circle></g><path d="" fill="none"></path></g></g>
+                                </svg>
+                            </div>
+                        </a>
+
+                    </div>
+                    <!-- ----------------------------------------- // branding -----------------------------------------  -->
+                    <!-- ----------------------------------------sidebar menu -----------------------------------------  -->
+
+                    <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
+                        <ul class="app-menu list-unstyled accordion" id="menu-accordion">
+                            <li class="nav-item">
+                                <div class="blur-box">
+
+                                    <a class="nav-link home-link {% block home_active %}{% endblock %}" href="{% url 'classes:home' %}">
+                                        <span class="nav-icon">
+                                            <img class="nav-icon-image"/>
+                                        </span>
+                                        <span class="nav-link-text">Home</span>
+                                    </a>
+                                    <!--//nav-link-->
+                                </div>
+                            </li>
+                            <!--//nav-item-->
+                            <li class="nav-item">
+                                <div class="blur-box ">
+                                    <a class="nav-link {% block all_active %}{% endblock %}" href="{% url 'classes:all' %}">
+                                        <span class="nav-icon">
+                                            <img src="https://img.icons8.com/plumpy/24/000000/card-exchange.png"/>
+						                </span>
+                                        <span class="nav-link-text">Classes</span>
+                                    </a>
+                                    <!--//nav-link-->
+                                </div>
+                            </li>
+                            <!--//nav-item-->
+                            <li class="nav-item">
+                                <div class="blur-box">
+
+                                    <a class="nav-link {% block create_active %}{% endblock %}" href="{% url 'classes:create' %}">
+                                        <span class="nav-icon">
+                                            <img src="https://img.icons8.com/plumpy/24/000000/plus-2-math.png"/>
+                                        </span>
+                                        <span class="nav-link-text">create </span>
+                                    </a>
+                                    <!--//nav-link-->
+                                </div>
+                            </li>
+                            <!--//nav-item-->
+
+                            <!-- ----------------------------------------//sidebar nav -----------------------------------------  -->
+                            <!-- ----------------------------------------sidebar footer -----------------------------------------  -->
+                            <div class="app-sidepanel-footer">
+                                <nav class="app-nav app-nav-footer">
+                                    <ul class="app-menu footer-menu list-unstyled">
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" href="{% url 'classes:themes' %}">
+                                                <span class="nav-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="24" height="24"
+                                                    viewBox="0 0 172 172"
+                                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ff254b"><path d="M150.5,86v7.16667h-100.33333v-7.16667c0,-7.88333 6.45,-14.33333 14.33333,-14.33333h71.66667c7.88333,0 14.33333,6.45 14.33333,14.33333z"></path><path d="M150.5,86v57.33333c0,7.88333 -6.45,14.33333 -14.33333,14.33333h-71.66667c-7.88333,0 -14.33333,-6.45 -14.33333,-14.33333v-57.33333z" opacity="0.35"></path><path d="M83.6135,136.16667h-9.55317c-5.28183,0 -9.56033,-4.2785 -9.56033,-9.55317v-9.55317c0,-5.28183 4.2785,-9.56033 9.55317,-9.56033h9.55317c5.28183,0 9.56033,4.2785 9.56033,9.55317v9.55317c0,5.28183 -4.2785,9.56033 -9.55317,9.56033z"></path><path d="M126.6135,136.16667h-9.55317c-5.28183,0 -9.56033,-4.2785 -9.56033,-9.55317v-9.55317c0,-5.28183 4.2785,-9.56033 9.55317,-9.56033h9.55317c5.28183,0 9.56033,4.2785 9.56033,9.55317v9.55317c0,5.28183 -4.2785,9.56033 -9.55317,9.56033z"></path><path d="M121.83333,35.83333v7.16667h-100.33333v-7.16667c0,-7.88333 6.45,-14.33333 14.33333,-14.33333h71.66667c7.88333,0 14.33333,6.45 14.33333,14.33333z" opacity="0.35"></path><path d="M21.5,43v50.16667c0,7.88333 6.45,14.33333 14.33333,14.33333h14.33333v-21.5h-4.80167c-5.23167,0 -9.53167,-4.3 -9.53167,-9.53167v-9.60333c0,-5.23167 4.3,-9.53167 9.53167,-9.53167h9.60333c5.23167,0 9.53167,4.3 9.53167,9.53167v4.80167h14.33333v-4.80167c0,-5.23167 4.3,-9.53167 9.53167,-9.53167h9.60333c5.23167,0 9.53167,4.3 9.53167,9.53167v4.80167h14.33333v-28.66667z"></path><path d="M64.5,66.865v4.80167c-7.88333,0 -14.33333,6.45 -14.33333,14.33333h-4.80167c-5.23167,0 -9.53167,-4.3 -9.53167,-9.53167v-9.60333c0,-5.23167 4.3,-9.53167 9.53167,-9.53167h9.60333c5.23167,0 9.53167,4.3 9.53167,9.53167z" opacity="0.35"></path><path d="M107.5,66.865v4.80167h-28.66667v-4.80167c0,-5.23167 4.3,-9.53167 9.53167,-9.53167h9.60333c5.23167,0 9.53167,4.3 9.53167,9.53167z" opacity="0.35"></path><path d="M83.6135,136.16667h-9.55317c-5.28183,0 -9.56033,-4.2785 -9.56033,-9.55317v-9.55317c0,-5.28183 4.2785,-9.56033 9.55317,-9.56033h9.55317c5.28183,0 9.56033,4.2785 9.56033,9.55317v9.55317c0,5.28183 -4.2785,9.56033 -9.55317,9.56033z"></path><path d="M126.6135,136.16667h-9.55317c-5.28183,0 -9.56033,-4.2785 -9.56033,-9.55317v-9.55317c0,-5.28183 4.2785,-9.56033 9.55317,-9.56033h9.55317c5.28183,0 9.56033,4.2785 9.56033,9.55317v9.55317c0,5.28183 -4.2785,9.56033 -9.55317,9.56033z"></path></g></g>
+                                                </svg>
+                                                </span>
+                                                <span class="nav-link-text">Themes</span>
+                                            </a>
+                                            <!--//nav-link-->
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" href="#">
+                                                <span class="nav-icon">
+                                                    <img src="https://img.icons8.com/plumpy/24/000000/questions.png"/>
+                                                </span>
+                                                <span class="nav-link-text">About</span>
+                                            </a>
+                                            <!--//nav-link-->
+                                        </li>
+                                        <!--//nav-item-->
+                                        <!--//nav-item-->
+                                        <li class="nav-item">
+
+                                            <a class="nav-link" href="{% url 'classes:account' %}">
+                                                <span class="nav-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="24" height="24"
+                                                    viewBox="0 0 172 172"
+                                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#2069f6"><circle cx="12" cy="7" transform="scale(7.16667,7.16667)" r="5" opacity="0.35"></circle><path d="M100.33333,136.16667c0,5.08833 1.075,9.96167 2.93833,14.33333h-60.27167c-11.89667,0 -21.5,-9.60333 -21.5,-21.5c0,-11.89667 9.60333,-21.5 21.5,-21.5h71.66667c-8.67167,6.52167 -14.33333,16.985 -14.33333,28.66667z"></path><path d="M136.16667,100.33333c-8.0625,0 -15.50867,2.666 -21.5,7.16667c-14.33333,0 -28.66667,28.66667 -28.66667,28.66667c0,0 7.16667,7.16667 17.14983,13.94633c5.4395,12.857 18.18183,21.887 33.01683,21.887c19.78,0 35.83333,-16.05333 35.83333,-35.83333c0,-19.78 -16.05333,-35.83333 -35.83333,-35.83333z" opacity="0.35"></path><path d="M154.94333,133.44333l-17.91667,17.91667c-1.21833,1.14667 -2.795,1.86333 -4.44333,1.86333c-1.64833,0 -3.225,-0.71667 -4.44333,-1.86333l-10.75,-10.75c-2.43667,-2.43667 -2.43667,-6.45 0,-8.88667c2.43667,-2.43667 6.45,-2.43667 8.88667,0l6.30667,6.30667l13.47333,-13.47333c2.43667,-2.43667 6.45,-2.43667 8.88667,0c2.43667,2.43667 2.43667,6.45 0,8.88667z"></path></g></g>
+                                                </svg>				        
+                                            </span>
+                                                <span class="nav-link-text">Account</span>
+                                            </a>
+                                            <!--//nav-link-->
+                                        </li>
+                                        <li class="nav-item">
+
+                                            <a title="log out" class="nav-link" href="{% url 'logout' %}">
+                                                <span class="nav-icon power-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                    width="26" height="26"
+                                                    viewBox="0 0 172 172"
+                                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#0f0f0f"><circle cx="12" cy="12" transform="scale(7.16667,7.16667)" r="10" opacity="0"></circle><path d="M86,93.16667c-3.96317,0 -7.16667,-3.2035 -7.16667,-7.16667v-43c0,-3.96317 3.2035,-7.16667 7.16667,-7.16667c3.96317,0 7.16667,3.2035 7.16667,7.16667v43c0,3.96317 -3.2035,7.16667 -7.16667,7.16667z"></path><path d="M86,136.16667c-27.65617,0 -50.16667,-22.5105 -50.16667,-50.16667c0,-14.18283 6.09167,-27.79233 16.71267,-37.31683c2.9455,-2.6445 7.46767,-2.408 10.11933,0.54467c2.6445,2.9455 2.40083,7.482 -0.54467,10.11933c-7.60383,6.8155 -11.954,16.5335 -11.954,26.65283c0,19.7585 16.07483,35.83333 35.83333,35.83333c19.7585,0 35.83333,-16.07483 35.83333,-35.83333c0,-10.11933 -4.35017,-19.83733 -11.954,-26.65283c-2.9455,-2.63733 -3.18917,-7.17383 -0.54467,-10.11933c2.6445,-2.9455 7.181,-3.182 10.11933,-0.54467c10.621,9.5245 16.71267,23.134 16.71267,37.31683c0,27.65617 -22.5105,50.16667 -50.16667,50.16667z"></path></g></g>
+                                                </svg>
+                                            </span>
+                                                <!-- <span class="power-btn-text invisible">Log out</span> -->
+                                            </a>
+                                            <!--//nav-link-->
+                                        </li>
+                                        <!--//nav-item-->
+                                    </ul>
+                                    <!--//footer-menu-->
+                                </nav>
+                            </div>
+                            <!-- ----------------------------------------sidebar footer -----------------------------------------  -->
+                        </ul>
+                    </nav>
+                </div>
+                <!--//sidepanel-inner-->
+            </div>
+
+            <!-- ----------------------------------------//sidebar -----------------------------------------  -->
+        </header>
+        <!-- ----------------------------------------//header -----------------------------------------  -->
+        <div class="blur">
+            <div class="app-wrapper">
+                <!-- ---------------------------------------- MAIN -----------------------------------------  -->
+                {% block main %} {% endblock %}
+                <!-- ---------------------------------------- MAIN -----------------------------------------  -->
+            </div>
+            <!-- ------------------------------------ footer ------------------------------------  -->
+            <footer class="app-footer">
+                <div class="container-xl">
+                    <div class="container text-center py-3">
+                        <small class="copyright">Design and Developed <i class="fas fa-code" style="color: #2069f6;"></i> by <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">The_Craftsman</a></small>
+
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="{% static 'classes/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'classes/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Page Specific JS -->
+    <script src="{% static 'classes/js/app.js' %}"></script>
+
+</body>
+
+</html>
